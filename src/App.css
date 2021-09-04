@@ -11,17 +11,37 @@
 
 
 /* MOVIES */ 
-.movie-container {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 50px;
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  border: #f0f0f0 1px solid;
 }
-.movie-card img {
-    width: 300px;
-    height: 165px;
-    object-fit: cover;
-    margin: 2px;
-    margin-top: 50px;
+
+.movie-card {
+  display: inline-block;
+  overflow-y: scroll;
+  border: #f0f0f0 1px solid;
+  width: 334px;
+  height: 270px;
+  margin-top: 30px;
+}
+.title {
+  text-align: center;
+  border: #f0f0f0 1px solid;
+}
+.poster-path {
+  width: 167px;
+  height: auto;
+  float: left;
+  border: #f0f0f0 1px solid;
+}
+
+.overview {
+  display: flex;
+  font-size: 12px;
+  padding-left: 15px;
+  border: #f0f0f0 1px solid;
 }
 
 /* TASK BAR */ 

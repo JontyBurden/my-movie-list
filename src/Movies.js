@@ -3,7 +3,7 @@ import './App.css';
 
 const Movies = ({ movies }) => {
     return (
-        <div className="movie-container">
+        <div className="wrapper">
             {movies.length > 0 && movies.map((movie) => (
                 <Movie id={movie.id} {...movie} />
             ))}
