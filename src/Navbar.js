@@ -1,6 +1,6 @@
-import NetflixLogo from './Netflix-Logo.png'
 import {FaSearch} from 'react-icons/fa'
 import {CgProfile} from 'react-icons/cg'
+import './App.css';
 
 const Navbar = () => {
     return (

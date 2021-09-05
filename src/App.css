@@ -16,6 +16,7 @@
   display: flex;
   flex-wrap: wrap;
   border: #f0f0f0 1px solid;
+  padding-left: 35px;
 }
 
 .movie-card {
@@ -23,12 +24,16 @@
   overflow-y: scroll;
   border: #f0f0f0 1px solid;
   width: 334px;
-  height: 270px;
+  height: 333px;
   margin-top: 30px;
 }
 .title {
   text-align: center;
   border: #f0f0f0 1px solid;
+}
+
+.title a {
+  text-decoration: none;
 }
 .poster-path {
   width: 167px;
@@ -44,6 +49,9 @@
   border: #f0f0f0 1px solid;
 }
 
+.add {
+  text-align: end;
+}
 /* TASK BAR */ 
 .task-bar .logo {
     margin: 0;
