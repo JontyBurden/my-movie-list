@@ -1,6 +1,6 @@
 import {FaSearch} from 'react-icons/fa'
 import {CgProfile} from 'react-icons/cg'
-import './App.css';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -11,9 +11,9 @@ const Navbar = () => {
             </ul>
             <div className="navbar">
                 <ul>
-                    <li><a href="">Home</a></li>
                     <li><a href="">Movies</a></li>
-                    <li><a href="">MyList</a></li>
+                    <li><Link to="MyList">MyList</Link></li>
+                    <li><Link to="/">Home</Link></li>
                     <form action="" className="search-bar">
                         <input 
                             type="text"

@@ -1,5 +1,4 @@
 import Movie from './Movie'
-import './App.css';
 
 const Movies = ({ movies }) => {
     return (
