@@ -20,17 +20,16 @@ const MODAL_STYLES = {
     zIndex: 1000
   }
 
-const Modal = ({ open, children, onClose }) => {
+const Modal = ({ open, children, onClose, title }) => {
+    
     if(!open) return null
 
     return (
         <>
         <div style={OVERLAY_STYLES}></div>
         <div className="modal" style={MODAL_STYLES}>
+            <h2>test</h2>
             <button onClick={onClose} >Close</button> 
-            <form action="">
-                <input type="text" />
-            </form>
             {children}       
         </div>
         </>

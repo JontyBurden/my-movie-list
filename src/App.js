@@ -2,10 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import Movies from './components/Movies';
 import Navbar from './components/Navbar';
-import GenreFilter from './components/GenreFilter';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import TopMovies from './components/TopMovies';
-import MyList from './components/MyList';
 import MovieDetails from './components/MovieDetails';
 import useFetch from './components/useFetch';
 
@@ -24,14 +21,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/">
-            <GenreFilter />
-            <Movies movies={movies} />
-          </Route>
-          <Route exact path="/TopMovies">
-            <TopMovies />
-          </Route>
-          <Route exact path="/MyList">
-            <MyList />
+            <Movies movies={movies} /> 
           </Route>
           <Route exact path="/movie/:id">
             <MovieDetails />
