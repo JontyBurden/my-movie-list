@@ -37,17 +37,18 @@
   position: fixed;
   top: 0;
   left: -100%;
-  transition: 850ms;
+  transition: 650ms;
 }
 .nav-menu.active {
   left: 0;
-  transition: 350ms;
+  transition: 250ms;
 }
 
 .nav-text {
   display: flex;
   justify-content: start;
   align-items: center;
+  text-align: center;
   padding: 8px, 0px, 8px, 17px;
   list-style: none;
   height: 60px;
@@ -108,7 +109,7 @@ span {
   grid-template-columns: auto 1fr;
   background-color: rgb(18, 18, 19);
   border-color: rgb(54, 58, 60);
-  border: #f0f0f0 1px solid;
+  
 }
 
 .movie-card > .title {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiOutlineHome } from 'react-icons/ai'
+import { AiOutlineHome, AiOutlineUnorderedList } from 'react-icons/ai'
 
 export const SidebarData = [
     {
@@ -11,7 +11,7 @@ export const SidebarData = [
     {
         title: 'MyList',
         path: '/MyList',
-        icon: <AiOutlineHome />,
+        icon: <AiOutlineUnorderedList />,
         cName: 'nav-text'
     }
     

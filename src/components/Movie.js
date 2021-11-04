@@ -11,16 +11,39 @@ const IMG_API = 'https://image.tmdb.org/t/p/w300';
 const Movie = ({ title, poster_path, backdrop_path, overview, vote_average, genre_ids, id , vote_count, release_date }) => {
 
     const [isOpen, setIsOpen] = useState(false)
+    
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const movie_id = { id }
+        console.log(movie_id)
+
+        fetch('http://localhost:8000/MyList', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json"},
+            body: JSON.stringify(movie_id)
+        }).then(() => {
+            console.log("added")
+        })
+    }
+
     return (
         <div className="movie-card">
+            
             <div className="title">
                 <Link to={`movie/${id}`}>{title}</Link>
+
                 <div className="add">
                     <a><BiAddToQueue onClick={() => setIsOpen(true)} /></a>
                     <Modal open={isOpen} onClose={() => setIsOpen(false)} />
                 </div>
             </div>
-            <div className="genre">{genre_ids}</div>
+
+            <div className="genre">{genre_ids}
+            
+            <span> </span><BiAddToQueue onClick={handleSubmit} />
+            
+            </div>
+            
 
             <div className="art">
                 <img src={IMG_API+poster_path} alt={title} className="art" />
