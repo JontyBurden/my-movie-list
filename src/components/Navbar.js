@@ -1,45 +1,53 @@
-import React, { useState } from 'react'
-import {FaSearch} from 'react-icons/fa'
-import {CgProfile, CgSidebarOpen, CgClose} from 'react-icons/cg'
-import { AiOutlineHome } from 'react-icons/ai'
 import { Link } from 'react-router-dom';
-import  { SidebarData } from './SidebarData'
-import { IconContext } from 'react-icons/lib';
+import {
+    Nav, 
+    Navbar, 
+    Container, 
+    NavDropdown,
+    Form,
+    FormControl,
+    Button} from 'react-bootstrap'
 
-const Navbar = () => {
-    const [sidebar, setSidebar] = useState(false)
-    
-    const showSidebar = () => setSidebar(!sidebar)
+const Nav_Bar = () => {
     return (
-        <div className='navbar'>
-        <IconContext.Provider value={{color: 'fff'}}>
-            <Link to='#' className='menu-bars'>
-                <CgSidebarOpen onClick={showSidebar}/>
-            </Link>
-            
-            <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-            
-                <ul className="nav-menu-items" onClick={showSidebar}>
-                    <li className="navbar-toggle">
-                        <Link to='#' className='menu-bars'>
-                            <CgClose />
-                        </Link>
-                    </li>
-                    {SidebarData.map((item, index) => {
-                        return (
-                            <li className={item.cName} key={index}>
-                                <Link to={item.path}>
-                                    {item.icon}
-                                    <span>{item.title}</span>
-                                </Link>
-                            </li>
-                        )
-                    })}
-                </ul>
-            </nav>
-        </IconContext.Provider>
-        </div>
+        <Navbar bg="light" expand="lg">
+            <Container fluid>
+                <Navbar.Brand href="#">MML</Navbar.Brand>
+                <Navbar.Toggle aria-controls="navbarScroll" />
+                <Navbar.Collapse id="navbarScroll">
+                <Nav
+                    className="me-auto my-2 my-lg-0"
+                    style={{ maxHeight: '100px' }}
+                    navbarScroll
+                >
+                    <Nav.Link><Link to="/">Home</Link></Nav.Link>
+                    <Nav.Link><Link to="/MyList">My List</Link></Nav.Link>
+
+                    <NavDropdown title="Link" id="navbarScrollingDropdown">
+                    <NavDropdown.Item href="#action3">Top Movies</NavDropdown.Item>
+                    <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="#action5">
+                        Information
+                    </NavDropdown.Item>
+                    </NavDropdown>
+                    <Nav.Link href="#" disabled>
+                    Link
+                    </Nav.Link>
+                </Nav>
+                <Form className="d-flex">
+                    <FormControl
+                    type="search"
+                    placeholder="Search"
+                    className="me-2"
+                    aria-label="Search"
+                    />
+                    <Button variant="outline-success">Search</Button>
+                </Form>
+                </Navbar.Collapse>
+            </Container>
+            </Navbar>
     );
 }
  
-export default Navbar;
+export default Nav_Bar;

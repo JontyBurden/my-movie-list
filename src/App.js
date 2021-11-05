@@ -1,11 +1,11 @@
 import "./App.css"
 import { useState, useEffect } from "react"
 import Movies from "./components/Movies"
-import Navbar from "./components/Navbar"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import MovieDetails from "./components/MovieDetails"
 import useFetch from "./components/useFetch"
 import MyList from "./components/MyList"
+import Nav_Bar from './components/Navbar'
 
 const API_KEY = process.env.REACT_APP_MOVIEDB_API_KEY
 const BASE_URL = `https://api.themoviedb.org/3`
@@ -30,7 +30,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
+        <Nav_Bar />
         <Switch>
           <Route exact path="/">
             <Movies movies={movies} />

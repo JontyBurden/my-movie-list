@@ -1,9 +1,13 @@
-import { useParams } from "react-router"
+import { useHistory, useParams } from "react-router"
 import { useEffect, useState } from "react"
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Button, Card } from 'react-bootstrap';
+
+const IMG_API = 'https://image.tmdb.org/t/p/w300';
 
 const MyList = ({ movieInfo }) => {
   const [data, setData] = useState(null)
-
+  const history = useHistory()
   console.log(movieInfo)
   useEffect(() => {
     console.log("hit")
@@ -19,9 +23,11 @@ const MyList = ({ movieInfo }) => {
 
   const handleDelete = (id) => {
     console.log(id)
-    fetch("http://localhost:8000/MyList", {
+    fetch("http://localhost:8000/MyList/" + id, {
       method: "DELETE",
-    }).then(console.log("id", id))
+    }).then(() => {
+      history.push("/MyList")
+    })
   }
 
   return (
@@ -29,13 +35,25 @@ const MyList = ({ movieInfo }) => {
       {data == null ? (
         <></>
       ) : (
-        <div className="my-list">
+        <div className="MyList-container">
           {data.map((movieInfo) => (
-            <div key={movieInfo.id}>
-              <h2>{movieInfo.id}</h2>
-              <button onClick={() => handleDelete(movieInfo.id)}>delete</button>
+            <div> 
+              <Card style={{ width: '18rem' }} key={movieInfo.id}>
+                <Card.Img variant="top" src={IMG_API+movieInfo.poster_path} />
+                <Card.Body>
+                  <Card.Title>
+                  {movieInfo.title}Test{movieInfo.vote_average} 
+                  </Card.Title>
+                  <Card.Text>
+                    test
+                  </Card.Text>
+                <Button onClick={() => handleDelete(movieInfo.id)}>delete</Button>
+                </Card.Body>
+              </Card>
             </div>
           ))}
+
+
         </div>
       )}
     </>
