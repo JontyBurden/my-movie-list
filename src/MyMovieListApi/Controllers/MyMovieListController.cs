@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyMovieListApi.Context;
 using MyMovieListApi.Models;
-using MyMovieListApi.Services;
+using MyMovieListApi.Services.Interfaces;
 
 namespace MyMovieListApi.Controllers
 {
@@ -16,12 +16,12 @@ namespace MyMovieListApi.Controllers
     public class MyMovieListController : ControllerBase
     {
         private readonly MyMovieListDbContext _context;
-        // private readonly MovieListService _movieListService;
+        private readonly IMovieListService _movieListService;
 
-        public MyMovieListController(MyMovieListDbContext context)
+        public MyMovieListController(MyMovieListDbContext context , IMovieListService movieListService)
         {
             _context = context;
-            // _movieListService = movieListService;
+            _movieListService = movieListService;
         }
 
         // GET: api/MyMovieList
@@ -83,7 +83,7 @@ namespace MyMovieListApi.Controllers
         {
             _context.Movies.Add(movie);
             await _context.SaveChangesAsync();
-
+            _movieListService.Add();
             return CreatedAtAction(nameof(PostMovie), new { id = movie.Id }, movie);
         }
 

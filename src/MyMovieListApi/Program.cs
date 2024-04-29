@@ -21,8 +21,7 @@ public class Program
         });
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-
-        // builder.Services.AddSingleton<IMovieListService, MovieListService>();
+        builder.Services.AddScoped<IMovieListService, MovieListService>();
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
