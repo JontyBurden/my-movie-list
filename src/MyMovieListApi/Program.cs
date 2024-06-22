@@ -24,7 +24,16 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddScoped<IMovieListService, MovieListService>();
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll", 
+            builder => builder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+        });
         var app = builder.Build();
+
+        app.UseCors("AllowAll");
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
@@ -33,23 +42,10 @@ public class Program
             app.UseSwaggerUI();
         }
 
-        string wwwrootPath = Path.Combine(Directory.GetCurrentDirectory(), "../MyMovieListWebsite/wwwroot");
-        var fileProvider = new PhysicalFileProvider(wwwrootPath);
-
-        app.UseDefaultFiles(new DefaultFilesOptions()
-        {
-            FileProvider = fileProvider
-        });
-
-        app.UseStaticFiles(new StaticFileOptions()
-        {
-            FileProvider = fileProvider
-        });
 
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
-
 
         app.MapControllers();
 

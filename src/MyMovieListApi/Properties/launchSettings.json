@@ -13,7 +13,7 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "launchUrl": "index.html", // change back to swagger when done playing with js
+      "launchUrl": "swagger",
       "applicationUrl": "http://localhost:5229",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
@@ -23,7 +23,7 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "launchUrl": "index.html",// change back to swagger when done playing with js
+      "launchUrl": "swagger",
       "applicationUrl": "https://localhost:7015;http://localhost:5229",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

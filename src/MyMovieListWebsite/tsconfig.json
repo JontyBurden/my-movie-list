@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "ES2015",
+        "outDir": "./dist",
+        "strict": true,
+        "sourceMap": true,
+        "baseUrl": "./src",
+        "paths": {
+            "*": ["*", "src/*"]
+        }
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
