@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamically Add Elements</title>
+</head>
+<body>
+
+    <script>
+// Get a reference to the body element
+const body = document.body;
+
+// Create a new paragraph element
+const paragraph = document.createElement('p');
+
+// Set some text content
+paragraph.textContent = 'This paragraph was dynamically created and appended to the body';
+
+// Append the paragraph to the body
+body.appendChild(paragraph);
+
+    </script>
+</body>
+</html>
